@@ -1,0 +1,49 @@
+{
+  "name": "remix-template",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remix vite:dev",
+    "build": "remix vite:build"
+  },
+  "dependencies": {
+    "@minko-fe/axios-pro": "^0.1.27",
+    "@minko-fe/lodash-pro": "^0.3.3",
+    "@minko-fe/react-component": "^0.2.8",
+    "@minko-fe/react-hook": "^0.3.5",
+    "@minko-fe/react-locale": "^0.1.29",
+    "@minko-fe/react-route": "^0.1.31",
+    "@minko-fe/vite-config": "^0.2.9",
+    "@remix-run/express": "^2.9.2",
+    "@remix-run/node": "^2.9.2",
+    "@remix-run/react": "^2.9.2",
+    "@remix-run/router": "^1.16.1",
+    "isbot": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@minko-fe/commitlint-config": "^2.0.7",
+    "@minko-fe/eslint-config": "^3.2.0",
+    "@minko-fe/postcss-config": "^0.1.27",
+    "@minko-fe/tsconfig": "^2.1.0",
+    "@remix-run/dev": "^2.9.2",
+    "@types/node": "^20.12.12",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "13.1.2",
+    "postcss": "^8.4.38",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "remix-development-tools": "^4.1.6",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-plugin-istanbul-widget": "link: ./../../istanbul-toolkit/packages/vite-plugin-istanbul-widget"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "@minko-fe/tsconfig/tsconfig.app",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./app/*"]
+    },
+    "types": ["vite/client", "vite-plugin-istanbul-widget/client"]
+  }
+}
