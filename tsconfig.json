@@ -3,8 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      "~*": ["./*"]
     },
-    "types": ["vite/client", "vite-plugin-istanbul-widget/client"]
+    "types": ["@remix-run/node", "vite/client", "vite-plugin-istanbul-widget/client"]
   }
 }

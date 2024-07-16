@@ -2,6 +2,8 @@ node_modules
 .DS_Store
 .cache
 dist
+build
+.vercel
 
 .local
 # local env files
@@ -26,3 +28,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+
+public-typescript/manifest.json
+public/assets/js

@@ -1,0 +1,17 @@
+@import 'antd/dist/reset.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+:root {
+  --color-primary: #1890ff;
+}
+
+[data-theme='dark'] {
+  @apply bg-black text-white;
+}
+[data-theme='light'] {
+  @apply bg-white text-black;
+}

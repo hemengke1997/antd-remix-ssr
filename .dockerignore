@@ -1,0 +1,16 @@
+# Package Managers
+
+node_modules
+
+# Editor Configs
+
+.idea
+.vscode
+.DS_Store
+
+/.cache
+.env
+
+# Tests
+
+/coverage
