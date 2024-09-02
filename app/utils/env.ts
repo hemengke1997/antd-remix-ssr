@@ -1,8 +1,4 @@
-export enum Env {
-  development = 'development',
-  test = 'test',
-  production = 'production',
-}
+import { Env } from 'vite-config-preset/client'
 
 export function getEnv(): string {
   return import.meta.env.MODE

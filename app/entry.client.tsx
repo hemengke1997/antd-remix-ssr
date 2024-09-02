@@ -1,4 +1,4 @@
-import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs'
+import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs'
 import { RemixBrowser } from '@remix-run/react'
 import i18next from 'i18next'
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
@@ -14,7 +14,7 @@ async function hydrate() {
     .use(I18nextBrowserLanguageDetector)
     .init({
       ...i18nOptions,
-      ns: [...getInitialNamespaces(), i18nOptions.defaultNS],
+      ns: [...getInitialNamespaces(), i18nOptions.defaultNS] as readonly string[],
       detection: {
         order: ['htmlTag'],
         caches: [],
@@ -35,8 +35,13 @@ async function hydrate() {
   })
 }
 
-if (window.requestIdleCallback) {
-  window.requestIdleCallback(hydrate)
-} else {
-  window.setTimeout(hydrate, 1)
+function removeThirdPartyDOM() {
+  let sibling = document.body.nextElementSibling
+  while (sibling) {
+    const nextSibling = sibling.nextElementSibling
+    sibling.remove()
+    sibling = nextSibling
+  }
 }
+removeThirdPartyDOM()
+hydrate()

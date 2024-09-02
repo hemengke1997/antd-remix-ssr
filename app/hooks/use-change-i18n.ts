@@ -1,4 +1,4 @@
-import { useUpdateEffect } from '@minko-fe/react-hook'
+import { useUpdateEffect } from 'ahooks'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 

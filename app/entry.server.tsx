@@ -1,5 +1,5 @@
 import type { EntryContext } from '@remix-run/node'
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs'
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs'
 import { createReadableStreamFromReadable } from '@remix-run/node'
 import { RemixServer } from '@remix-run/react'
 import { createInstance } from 'i18next'
@@ -27,7 +27,7 @@ export default async function handleRequest(
   await i18nInstance.use(initReactI18next).init({
     ...i18nOptions,
     lng,
-    ns: [...ns, i18nOptions.defaultNS],
+    ns: [...ns, ...i18nOptions.defaultNS],
   })
 
   return new Promise((resolve, reject) => {
@@ -53,7 +53,6 @@ export default async function handleRequest(
                   isStyleExtracted = true
                 }
               }
-
               callback(null, chunk)
             },
           })

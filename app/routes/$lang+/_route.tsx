@@ -1,4 +1,4 @@
-import { type LoaderFunctionArgs, type MetaFunction, json } from '@remix-run/node'
+import { json, type LoaderFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Button, Card, Space, Tag } from 'antd'
 import { useTranslation } from 'react-i18next'
 import { Theme, useTheme } from 'remix-themes'

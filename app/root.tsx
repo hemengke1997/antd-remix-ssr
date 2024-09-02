@@ -1,22 +1,23 @@
-import { isBrowser } from '@minko-fe/lodash-pro'
 import { type LinksFunction, type LoaderFunctionArgs, type MetaFunction, redirect } from '@remix-run/node'
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, json, useLoaderData } from '@remix-run/react'
-import manifest from '~public-typescript/manifest.json'
+import { json, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
+import { isBrowser } from 'browser-or-node'
 import { useTranslation } from 'react-i18next'
 import { useChangeLanguage } from 'remix-i18next/react'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
+import manifest from '~/public-typescript/manifest.json'
 import AntdConfigProvider from './components/antd-config-provider'
-import { GenericErrorBoundary } from './components/error-boundary'
+import { ErrorBoundaryComponent } from './components/error-boundary'
+import globalCss from './css/global.css?url'
 import { useChangeI18n } from './hooks/use-change-i18n'
 import { i18nOptions } from './i18n/i18n'
 import { i18nServer, localeCookie } from './i18n/i18n.server'
 import { csrf } from './modules/csrf/csrf.server'
 import { combineHeaders } from './modules/server/index.server'
 import { themeSessionResolver } from './modules/session/session.server'
-import RootCSS from './root.css?url'
 import { siteConfig } from './utils/constants/site'
+import { isDev } from './utils/env'
 
 export const meta: MetaFunction<typeof loader> = () => {
   return [
@@ -34,7 +35,7 @@ export const meta: MetaFunction<typeof loader> = () => {
 
 export const links: LinksFunction = () => {
   return [
-    { rel: 'stylesheet', href: RootCSS },
+    { rel: 'stylesheet', href: globalCss },
     {
       rel: 'icon',
       href: siteConfig.favicon,
@@ -89,13 +90,15 @@ function Document({
           content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0'
         />
         <meta name='renderer' content='webkit' />
+
+        {/* https://github.com/remix-run/remix/issues/9242 */}
         <Meta />
         <Links />
 
-        {<script src={manifest.flexible} async />}
-        {!isBrowser() && '__ANTD_STYLE__'}
+        {<script src={manifest['flexible']} async />}
+        {!isBrowser && !isDev() && '__ANTD_STYLE__'}
       </head>
-      <body id='body'>
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -133,7 +136,7 @@ export function ErrorBoundary() {
   return (
     <WithTheme specifiedTheme={theme}>
       <Document>
-        <GenericErrorBoundary />
+        <ErrorBoundaryComponent />
       </Document>
     </WithTheme>
   )

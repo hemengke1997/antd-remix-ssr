@@ -9,7 +9,7 @@ type GenericErrorBoundaryProps = {
   unexpectedErrorHandler?: (error: unknown) => JSX.Element | null
 }
 
-export function GenericErrorBoundary({
+export function ErrorBoundaryComponent({
   statusHandlers,
   defaultStatusHandler = ({ error }) => (
     <p>

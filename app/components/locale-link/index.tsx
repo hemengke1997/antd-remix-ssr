@@ -1,6 +1,6 @@
-import { isString } from '@minko-fe/lodash-pro'
-import { Link, type Path, generatePath } from '@remix-run/react'
+import { generatePath, Link, type Path } from '@remix-run/react'
 import { type RemixLinkProps } from '@remix-run/react/dist/components'
+import { isString } from 'lodash-es'
 import { memo } from 'react'
 import { useLocale } from 'remix-i18next/react'
 

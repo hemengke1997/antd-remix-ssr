@@ -1,4 +1,4 @@
-import { type MetaFunction, json } from '@remix-run/node'
+import { json, type MetaFunction } from '@remix-run/node'
 import { type LoaderFunctionArgs } from '@remix-run/router'
 import LocaleLink from '@/components/locale-link'
 import { i18nServer } from '@/i18n/i18n.server'

@@ -1,4 +1,4 @@
-import { useMemoizedFn } from '@minko-fe/react-hook'
+import { useMemoizedFn } from 'ahooks'
 import { useEffect, useState } from 'react'
 
 export function useSteps<T extends string>(

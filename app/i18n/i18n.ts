@@ -14,7 +14,7 @@ const locales = Object.keys(resourceMap).map((key) => {
 })
 
 const fallbackLng = 'en'
-const defaultNS = 'common'
+const defaultNS = ['common']
 const supportedLngs = locales.map(({ locale }) => locale)
 const resources = locales.reduce(
   (acc, { locale, translation }) => {
