@@ -14,7 +14,7 @@ async function hydrate() {
     .use(I18nextBrowserLanguageDetector)
     .init({
       ...i18nOptions,
-      ns: [...getInitialNamespaces(), i18nOptions.defaultNS] as readonly string[],
+      ns: [...getInitialNamespaces(), ...i18nOptions.defaultNS] as readonly string[],
       detection: {
         order: ['htmlTag'],
         caches: [],
