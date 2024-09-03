@@ -6,7 +6,7 @@ import { useChangeLanguage } from 'remix-i18next/react'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
-import manifest from '~/public-typescript/manifest.json'
+import { manifest } from 'virtual:public-typescript-manifest'
 import AntdConfigProvider from './components/antd-config-provider'
 import { ErrorBoundaryComponent } from './components/error-boundary'
 import globalCss from './css/global.css?url'
@@ -95,7 +95,7 @@ function Document({
         <Meta />
         <Links />
 
-        {<script src={manifest['flexible']} async />}
+        {<script src={manifest.flexible} />}
         {!isBrowser && !isDev() && '__ANTD_STYLE__'}
       </head>
       <body>

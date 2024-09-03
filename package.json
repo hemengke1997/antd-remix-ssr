@@ -8,7 +8,7 @@
     "build": "remix vite:build",
     "start": "remix-serve ./dist/server/index.js",
     "prepare": "simple-git-hooks",
-    "commitlint": "commitlint --edit",
+    "commitlint": "commitlint -e",
     "lint": "tsc --noEmit & eslint . --fix"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "@remix-run/server-runtime": "^2.11.2",
     "ahooks": "^3.8.1",
     "ahooks-x": "^1.1.0",
-    "antd": "^5.20.3",
+    "antd": "^5.20.4",
     "browser-or-node": "^3.0.0",
     "cookie": "^0.6.0",
     "crypto-js": "^4.2.0",
@@ -29,7 +29,7 @@
     "i18next-browser-languagedetector": "^8.0.0",
     "isbot": "^5.1.17",
     "js-cookie": "^3.0.5",
-    "ky": "^1.7.1",
+    "ky": "^1.7.2",
     "lodash-es": "^4.17.21",
     "modern-flexible": "^0.0.8",
     "react": "^18.3.1",
@@ -60,8 +60,8 @@
     "cross-env": "^7.0.3",
     "eslint": "^9.9.1",
     "husky": "^9.1.5",
-    "lint-staged": "^13.1.2",
-    "postcss": "^8.4.43",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8.4.44",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "remix-development-tools": "^4.4.1",
     "remix-flat-routes": "^0.6.5",
@@ -72,7 +72,7 @@
     "typescript": "^5.5.4",
     "vite": "^5.4.2",
     "vite-plugin-istanbul-widget": "^1.9.0",
-    "vite-plugin-public-typescript": "^3.2.3"
+    "vite-plugin-public-typescript": "^4.0.0"
   },
   "simple-git-hooks": {
     "commit-msg": "npm run commitlint",

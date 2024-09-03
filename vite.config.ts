@@ -42,10 +42,7 @@ export default defineConfig((env) => {
           },
         }),
         publicTypescript({
-          destination: 'file',
           outputDir: 'assets/js',
-          babel: true,
-          cacheDir: 'public-typescript',
         }),
       ],
     },

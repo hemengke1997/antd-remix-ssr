@@ -6,6 +6,11 @@
       "@/*": ["./app/*"],
       "~/*": ["./*"]
     },
-    "types": ["@remix-run/node", "vite/client", "vite-plugin-istanbul-widget/client"]
+    "types": [
+      "@remix-run/node",
+      "vite/client",
+      "vite-plugin-istanbul-widget/client",
+      "vite-plugin-public-typescript/manifest"
+    ]
   }
 }
