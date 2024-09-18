@@ -1,34 +1,23 @@
-const resourceMap = import.meta.glob('./locales/*.json5', {
-  eager: true,
-  import: 'default',
-}) as Record<string, { [key: string]: string }>
-
-const locales = Object.keys(resourceMap).map((key) => {
-  const locale = key.replace(/^\.\/locales\//g, '').replace(/\.json5$/, '')
-  return {
-    locale,
-    translation: {
-      ...resourceMap[key],
-    },
-  }
-})
+import { type AgnosticRouteObject, matchRoutes } from '@remix-run/router'
+import { routes } from 'virtual:remix-flat-routes'
 
 const fallbackLng = 'en'
 const defaultNS = ['common']
-const supportedLngs = locales.map(({ locale }) => locale)
-const resources = locales.reduce(
-  (acc, { locale, translation }) => {
-    acc[locale] = translation
-    return acc
-  },
-  {} as Record<string, { [ns: string]: string }>,
-)
 
 export const i18nOptions = {
-  resources,
   fallbackLng,
-  supportedLngs,
   defaultNS,
   nsSeparator: '.',
   keySeparator: '.',
+}
+
+export function resolveNamespace(pathname = window.location.pathname): string[] {
+  return (
+    matchRoutes(routes as AgnosticRouteObject[], pathname)
+      ?.map((route) => route.route.handle)
+      .filter((t) => t?.i18n)
+      .map((t) => t.i18n)
+      .flat()
+      .concat(defaultNS) || defaultNS
+  )
 }

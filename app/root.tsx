@@ -1,11 +1,12 @@
+import { useTranslation } from 'react-i18next'
 import { type LinksFunction, type LoaderFunctionArgs, type MetaFunction, redirect } from '@remix-run/node'
 import { json, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
 import { isBrowser } from 'browser-or-node'
-import { useTranslation } from 'react-i18next'
 import { useChangeLanguage } from 'remix-i18next/react'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
+import { resources } from 'virtual:i18n-ally-async-resource'
 import { manifest } from 'virtual:public-typescript-manifest'
 import AntdConfigProvider from './components/antd-config-provider'
 import { ErrorBoundaryComponent } from './components/error-boundary'
@@ -46,7 +47,13 @@ export const links: LinksFunction = () => {
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
-  const locale = params.lang || (await i18nServer.getLocale(request))
+
+  const locale = Object.keys(resources)
+    .filter((key) => !key.includes('/'))
+    .includes(params.lang!)
+    ? params.lang!
+    : await i18nServer.getLocale(request)
+
   if (!params.lang) {
     let pathWithSearch = ''
 
@@ -96,6 +103,7 @@ function Document({
         <Links />
 
         {<script src={manifest.flexible} />}
+
         {!isBrowser && !isDev() && '__ANTD_STYLE__'}
       </head>
       <body>
@@ -118,6 +126,7 @@ export default function App() {
   const { i18n } = useTranslation()
   useChangeLanguage(locale)
   useChangeI18n()
+
   return (
     <WithTheme specifiedTheme={theme}>
       <Document lang={locale ?? i18nOptions.fallbackLng} dir={i18n.dir()}>
@@ -132,12 +141,5 @@ export default function App() {
 }
 
 export function ErrorBoundary() {
-  const { theme } = useLoaderData<typeof loader>()
-  return (
-    <WithTheme specifiedTheme={theme}>
-      <Document>
-        <ErrorBoundaryComponent />
-      </Document>
-    </WithTheme>
-  )
+  return <ErrorBoundaryComponent />
 }

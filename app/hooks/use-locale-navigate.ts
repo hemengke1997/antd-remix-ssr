@@ -1,7 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from '@remix-run/react'
 import { type RouterNavigateOptions, type To } from '@remix-run/router'
 import { useMemoizedFn } from 'ahooks'
-import { useLocale } from 'remix-i18next/react'
 
 interface LocaleNavigateFunction {
   (to: To, options?: RouterNavigateOptions): void
@@ -9,7 +9,9 @@ interface LocaleNavigateFunction {
 
 export default function useLocaleNavigate() {
   const navigate = useNavigate()
-  const locale = useLocale()
+  const { i18n } = useTranslation()
+  const locale = i18n.language
+
   const navigateWithLocale: LocaleNavigateFunction = useMemoizedFn((to, options) => {
     if (typeof to === 'string') {
       if (to.startsWith('/')) {

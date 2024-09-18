@@ -1,5 +1,5 @@
-import { theme as antdTheme, App, ConfigProvider } from 'antd'
 import { memo, type PropsWithChildren } from 'react'
+import { theme as antdTheme, App, ConfigProvider } from 'antd'
 import { Theme, useTheme } from 'remix-themes'
 
 function AntdConfigProvider(props: PropsWithChildren) {

@@ -1,5 +1,5 @@
-@import url('./tailwind.css');
 @import url('./antd.css');
+@import url('./tailwind.css');
 
 [data-theme='dark'] {
   @apply bg-black text-white;

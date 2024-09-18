@@ -1,5 +1,6 @@
 import { type Cookie, createCookie } from '@remix-run/node'
 import { RemixI18Next } from 'remix-i18next/server'
+import { resources } from 'virtual:i18n-ally-resource'
 import { i18nOptions } from '@/i18n/i18n'
 import { LOCALE_COOKIE_NAME } from '@/utils/constants/storage'
 
@@ -28,13 +29,21 @@ export function createLocaleCookieResolver(localeCookie: Cookie) {
   return resolver
 }
 
+const supportedLngs = Object.keys(resources)
+
+export const i18nServerOptions = {
+  ...i18nOptions,
+  supportedLngs,
+  resources,
+}
+
 export const i18nServer = new RemixI18Next({
   detection: {
-    supportedLanguages: i18nOptions.supportedLngs,
-    fallbackLanguage: i18nOptions.fallbackLng,
+    supportedLanguages: i18nServerOptions.supportedLngs,
+    fallbackLanguage: i18nServerOptions.fallbackLng,
     cookie: localeCookie,
   },
   i18next: {
-    ...i18nOptions,
+    ...i18nServerOptions,
   },
 })
