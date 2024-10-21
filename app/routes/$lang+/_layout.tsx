@@ -10,10 +10,9 @@ export const shouldRevalidate = ({ nextUrl }: ShouldRevalidateFunctionArgs) => {
 }
 
 export const clientLoader = async () => {
-  console.log(url, 'url')
   if (url) {
     await window.asyncLoadResource?.(i18next.language, {
-      namespaces: [...resolveNamespace(url.pathname)],
+      namespaces: [...(await resolveNamespace(url.pathname))],
     })
   }
   return null

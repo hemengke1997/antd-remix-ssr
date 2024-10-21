@@ -17,6 +17,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return tdk({ t: data?.title, d: 'remix antd i18n demo' })
 }
 
+export const handle = {
+  i18n: ['home'],
+}
+
 export default function () {
   const { t, i18n } = useTranslation()
   const [theme, setTheme] = useTheme()

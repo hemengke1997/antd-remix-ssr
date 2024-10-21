@@ -5,6 +5,10 @@ import { Button, Card, Space } from 'antd'
 import LocaleLink from '@/components/locale-link'
 import { i18nServer } from '@/i18n/i18n.server'
 
+export const handle = {
+  i18n: ['home', 'user'],
+}
+
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nServer.getFixedT(request)
   const title = t('common.title')

@@ -31,6 +31,7 @@ export default defineConfig((env) => {
           flatRoutesOptions: {
             ignoredRouteFiles,
           },
+          handleAsync: true,
         }),
         istanbulWidget({
           enabled: env.mode === 'test',
