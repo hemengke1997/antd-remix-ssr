@@ -1,13 +1,16 @@
 import { useTranslation } from 'react-i18next'
 import { type LinksFunction, type LoaderFunctionArgs, type MetaFunction, redirect } from '@remix-run/node'
 import { json, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
+import { type ShouldRevalidateFunctionArgs } from '@remix-run/react'
 import { isBrowser } from 'browser-or-node'
+import i18next from 'i18next'
 import { useChangeLanguage } from 'remix-i18next/react'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
 import { resources } from 'virtual:i18n-ally-async-resource'
 import { manifest } from 'virtual:public-typescript-manifest'
+import { resolveNamespace } from '@/i18n/i18n'
 import AntdConfigProvider from './components/antd-config-provider'
 import { ErrorBoundaryComponent } from './components/error-boundary'
 import globalCss from './css/global.css?url'
@@ -19,6 +22,22 @@ import { combineHeaders } from './modules/server/index.server'
 import { themeSessionResolver } from './modules/session/session.server'
 import { siteConfig } from './utils/constants/site'
 import { isDev } from './utils/env'
+
+let url: URL
+
+export const shouldRevalidate = ({ nextUrl }: ShouldRevalidateFunctionArgs) => {
+  url = nextUrl
+  return true
+}
+
+export const clientLoader = async () => {
+  if (url) {
+    await window.asyncLoadResource?.(i18next.language, {
+      namespaces: [...(await resolveNamespace(url.pathname))],
+    })
+  }
+  return {}
+}
 
 export const meta: MetaFunction<typeof loader> = () => {
   return [
