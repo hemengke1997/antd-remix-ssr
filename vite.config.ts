@@ -12,7 +12,7 @@ import { remixFlatRoutes } from 'vite-plugin-remix-flat-routes'
 installGlobals()
 
 export default defineConfig((env) => {
-  const ignoredRouteFiles = ['**/components/**', '**/hooks/**', '**/images/**', '**/utils/**', '**/*.css', '**/meta.*']
+  const ignoredRouteFiles = ['**/components/**', '**/hooks/**', '**/images/**', '**/utils/**', '**/*.css']
   return preset(
     {
       env,

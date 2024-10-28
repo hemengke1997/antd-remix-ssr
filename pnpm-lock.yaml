@@ -178,8 +178,8 @@ importers:
         specifier: ^5.4.10
         version: 5.4.10(@types/node@22.8.1)(terser@5.31.2)
       vite-plugin-i18n-ally:
-        specifier: ^5.1.3
-        version: 5.1.3(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2))
+        specifier: ^5.2.0
+        version: 5.2.0(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2))
       vite-plugin-istanbul-widget:
         specifier: ^1.9.1
         version: 1.9.1(@remix-run/dev@2.13.1(@remix-run/react@2.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(@remix-run/serve@2.13.1(typescript@5.6.3))(@types/node@22.8.1)(babel-plugin-macros@3.1.0)(terser@5.31.2)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2))
@@ -7333,8 +7333,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-i18n-ally@5.1.3:
-    resolution: {integrity: sha512-ixV0HqvE2KECwykg2urpylg94FBILmhFM19zsXB3G8F7O7cghZI1MIm9DkP8ceL3q67FVEDWkLX9+aZ8cc1zSA==}
+  vite-plugin-i18n-ally@5.2.0:
+    resolution: {integrity: sha512-hFxMtoEpBGA+7iJ/DOqsc7FpTUU5yMvVeoB4qAgqHGF8EDQVA1nPfNS7uA1xZT8pwaqVgWrKOaMPetj01lVCsg==}
     peerDependencies:
       vite: '>=5.0.0'
 
@@ -15591,7 +15591,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-i18n-ally@5.1.3(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2)):
+  vite-plugin-i18n-ally@5.2.0(vite@5.4.10(@types/node@22.8.1)(terser@5.31.2)):
     dependencies:
       debug: 4.3.7
       fast-glob: 3.3.2

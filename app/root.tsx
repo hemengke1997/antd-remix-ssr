@@ -8,7 +8,6 @@ import { useChangeLanguage } from 'remix-i18next/react'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
-import { resources } from 'virtual:i18n-ally-async-resource'
 import { manifest } from 'virtual:public-typescript-manifest'
 import { resolveNamespace } from '@/i18n/i18n'
 import AntdConfigProvider from './components/antd-config-provider'
@@ -17,6 +16,7 @@ import globalCss from './css/global.css?url'
 import { useChangeI18n } from './hooks/use-change-i18n'
 import { i18nOptions } from './i18n/i18n'
 import { i18nServer, localeCookie } from './i18n/i18n.server'
+import { getLanguages } from './i18n/resolver'
 import { csrf } from './modules/csrf/csrf.server'
 import { combineHeaders } from './modules/server/index.server'
 import { themeSessionResolver } from './modules/session/session.server'
@@ -67,23 +67,20 @@ export const links: LinksFunction = () => {
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
 
-  const locale = Object.keys(resources)
-    .filter((key) => !key.includes('/'))
-    .includes(params.lang!)
-    ? params.lang!
-    : await i18nServer.getLocale(request)
+  // locale
+  const locale = getLanguages().includes(params.lang!) ? params.lang! : await i18nServer.getLocale(request)
 
-  if (!params.lang) {
-    let pathWithSearch = ''
+  if (!params.lang || params.lang !== locale) {
+    const newUrl = new URL(request.url)
 
-    const url = new URL(request.url)
     if (url.pathname === '/') {
-      pathWithSearch = `/${locale}${url.search}`
+      newUrl.pathname = `/${locale}`
     } else {
-      pathWithSearch = `/${locale}${url.pathname}${url.search}`
+      newUrl.pathname = `/${locale}${url.pathname}`
     }
-    throw redirect(pathWithSearch)
+    throw redirect(newUrl.toString())
   }
+
   const [csrfToken, csrfCookieHeader] = await csrf.commitToken()
 
   return json(
