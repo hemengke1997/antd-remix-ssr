@@ -3,7 +3,6 @@ import Cookies from 'js-cookie'
 import ky, { type Hooks, type KyInstance, type KyResponse, type Options } from 'ky'
 import { i18nOptions } from '@/i18n/i18n'
 import { LOCALE_COOKIE_NAME } from '@/utils/constants/storage'
-import { REQUEST_CONSTANTS } from './constant'
 
 export enum CONTENT_TYPE {
   /**
@@ -27,7 +26,7 @@ type RequestOptions = {
 class KyRequest {
   private readonly DEFAULT_OPTIONS: Options = {
     headers: {
-      [REQUEST_CONSTANTS.CONTENT_TYPE]: CONTENT_TYPE.JSON,
+      'Content-Type': CONTENT_TYPE.JSON,
     },
     credentials: 'include',
     retry: 0,

@@ -17,25 +17,3 @@ export function getLanguages() {
   }
   return Array.from(new Set(Object.keys(resources).filter((key) => !key.includes(separator))))
 }
-
-export function getNamespaces() {
-  if (config.namespace) {
-    const namespaceMap = new Map<string, string[]>()
-    Object.keys(resources)
-      .filter((key) => key.includes(separator))
-      .forEach((key) => {
-        const [lang, ns] = key.split(separator)
-        const namespaces = namespaceMap.get(lang) || []
-        namespaces.push(ns)
-        namespaceMap.set(lang, namespaces)
-      })
-
-    return Object.fromEntries(namespaceMap)
-  } else {
-    const r: { [lang: string]: string[] } = {}
-    Object.keys(resources).forEach((key) => {
-      r[key] = []
-    })
-    return r
-  }
-}

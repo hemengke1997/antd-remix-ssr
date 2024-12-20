@@ -1,7 +1,17 @@
 import { useTranslation } from 'react-i18next'
-import { type LinksFunction, type LoaderFunctionArgs, type MetaFunction, redirect } from '@remix-run/node'
-import { json, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
-import { type ShouldRevalidateFunctionArgs } from '@remix-run/react'
+import { type LinksFunction, type LoaderFunctionArgs, type MetaFunction } from '@remix-run/node'
+import {
+  type ClientLoaderFunction,
+  json,
+  Links,
+  Meta,
+  Outlet,
+  type Params,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from '@remix-run/react'
+import { redirect } from '@remix-run/router'
 import { isBrowser } from 'browser-or-node'
 import i18next from 'i18next'
 import { useChangeLanguage } from 'remix-i18next/react'
@@ -9,33 +19,36 @@ import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { ExternalScripts } from 'remix-utils/external-scripts'
 import { manifest } from 'virtual:public-typescript-manifest'
-import { resolveNamespace } from '@/i18n/i18n'
 import AntdConfigProvider from './components/antd-config-provider'
 import { ErrorBoundaryComponent } from './components/error-boundary'
 import globalCss from './css/global.css?url'
-import { useChangeI18n } from './hooks/use-change-i18n'
 import { i18nOptions } from './i18n/i18n'
 import { i18nServer, localeCookie } from './i18n/i18n.server'
+import { resolveNamespace } from './i18n/namespace.client'
 import { getLanguages } from './i18n/resolver'
+import { useChangeI18n } from './i18n/use-change-i18n'
 import { csrf } from './modules/csrf/csrf.server'
 import { combineHeaders } from './modules/server/index.server'
 import { themeSessionResolver } from './modules/session/session.server'
 import { siteConfig } from './utils/constants/site'
 import { isDev } from './utils/env'
 
-let url: URL
-
-export const shouldRevalidate = ({ nextUrl }: ShouldRevalidateFunctionArgs) => {
-  url = nextUrl
+export const shouldRevalidate = () => {
   return true
 }
 
-export const clientLoader = async () => {
+export const clientLoader: ClientLoaderFunction = async ({ request, params }) => {
+  const url = new URL(request.url)
   if (url) {
     await window.asyncLoadResource?.(i18next.language, {
       namespaces: [...(await resolveNamespace(url.pathname))],
     })
   }
+
+  redirectLang(request, params, {
+    fallbackLng: i18next.language,
+  })
+
   return {}
 }
 
@@ -64,22 +77,35 @@ export const links: LinksFunction = () => {
   ]
 }
 
+function redirectLang(
+  request: Request,
+  params: Params<string>,
+  options: {
+    fallbackLng: string
+  },
+) {
+  const locale = getLanguages().includes(params.lang!) ? params.lang : options.fallbackLng
+
+  if (!params.lang || params.lang !== locale) {
+    const url = new URL(request.url)
+    if (url.pathname === '/') {
+      url.pathname = `/${locale}`
+    } else {
+      url.pathname = `/${locale}${url.pathname}`
+    }
+    throw redirect(url.toString())
+  }
+
+  return { locale }
+}
+
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
 
   // locale
-  const locale = getLanguages().includes(params.lang!) ? params.lang! : await i18nServer.getLocale(request)
-
-  if (!params.lang || params.lang !== locale) {
-    const newUrl = new URL(request.url)
-
-    if (url.pathname === '/') {
-      newUrl.pathname = `/${locale}`
-    } else {
-      newUrl.pathname = `/${locale}${url.pathname}`
-    }
-    throw redirect(newUrl.toString())
-  }
+  const { locale } = redirectLang(request, params, {
+    fallbackLng: await i18nServer.getLocale(request),
+  })
 
   const [csrfToken, csrfCookieHeader] = await csrf.commitToken()
 

@@ -5,7 +5,6 @@ import { defineConfig } from 'vite'
 import { preset } from 'vite-config-preset'
 import { envOnlyMacros } from 'vite-env-only'
 import { i18nAlly } from 'vite-plugin-i18n-ally'
-import { istanbulWidget } from 'vite-plugin-istanbul-widget/remix'
 import { publicTypescript } from 'vite-plugin-public-typescript'
 import { remixFlatRoutes } from 'vite-plugin-remix-flat-routes'
 
@@ -32,26 +31,6 @@ export default defineConfig((env) => {
             ignoredRouteFiles,
           },
           handleAsync: true,
-        }),
-        istanbulWidget({
-          enabled: env.mode === 'test',
-          istanbulWidgetConfig: {
-            defaultPosition: {
-              x: 0,
-              y: 100,
-            },
-            plugin: {
-              report: {
-                async onReport(coverage, ...args) {
-                  console.log(coverage, ...args)
-                },
-              },
-              setting: {
-                onLeavePage: true,
-                requireReporter: false,
-              },
-            },
-          },
         }),
         publicTypescript({
           outputDir: 'assets/js',

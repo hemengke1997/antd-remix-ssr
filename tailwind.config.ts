@@ -54,33 +54,6 @@ const config = {
   presets: [require('tailwind-antd-preset')],
   plugins: [
     require('tailwindcss-animate'),
-    plugin(function addVars({ addBase, theme }) {
-      function extractColorVars(colorObj: Record<string, any>, colorGroup = '', start: string, end: string) {
-        const keys = Object.keys(colorObj)
-        const startIndex = keys.indexOf(start)
-        const endIndex = keys.indexOf(end)
-        if (startIndex === -1 || endIndex === -1) {
-          return {}
-        }
-
-        colorObj = Object.fromEntries(keys.slice(startIndex + 1, endIndex).map((key) => [key, colorObj[key]]))
-
-        return Object.keys(colorObj).reduce((vars, colorKey) => {
-          const value = colorObj[colorKey]
-
-          const newVars =
-            typeof value === 'string'
-              ? { [`--color${colorGroup}-${colorKey}`]: value }
-              : extractColorVars(value, `-${colorKey}`, start, end)
-
-          return { ...vars, ...newVars }
-        }, {})
-      }
-
-      addBase({
-        ':root': extractColorVars(theme('colors'), '', '/colors-begin', '/colors-end'),
-      })
-    }),
     plugin(function addDirection({ addUtilities }) {
       addUtilities({
         '.rtl': {
