@@ -75,8 +75,7 @@
     "vite": "^5.4.11",
     "vite-plugin-i18n-ally": "^5.2.6",
     "vite-plugin-istanbul-widget": "^1.9.1",
-    "vite-plugin-public-typescript": "^4.1.2",
-    "vite-plugin-remix-flat-routes": "^4.4.1"
+    "vite-plugin-public-typescript": "^4.1.2"
   },
   "pnpm": {
     "overrides": {

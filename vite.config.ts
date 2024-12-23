@@ -6,7 +6,6 @@ import { preset } from 'vite-config-preset'
 import { envOnlyMacros } from 'vite-env-only'
 import { i18nAlly } from 'vite-plugin-i18n-ally'
 import { publicTypescript } from 'vite-plugin-public-typescript'
-import { remixFlatRoutes } from 'vite-plugin-remix-flat-routes'
 
 installGlobals()
 
@@ -25,12 +24,6 @@ export default defineConfig((env) => {
               ignoredRouteFiles,
             })
           },
-        }),
-        remixFlatRoutes({
-          flatRoutesOptions: {
-            ignoredRouteFiles,
-          },
-          handleAsync: true,
         }),
         publicTypescript({
           outputDir: 'assets/js',

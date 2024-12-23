@@ -196,9 +196,6 @@ importers:
       vite-plugin-public-typescript:
         specifier: ^4.1.2
         version: 4.1.2(esbuild@0.23.1)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
-      vite-plugin-remix-flat-routes:
-        specifier: ^4.4.1
-        version: 4.4.1(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react-router-dom@6.27.0(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
 
 packages:
 
@@ -3472,9 +3469,6 @@ packages:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
-  change-case@5.4.4:
-    resolution: {integrity: sha512-HRQyTk2/YPEkt9TnUPbOpr64Uw3KOicFWPVBb+xiHvd6eBx/qPr9xqfBFDT8P2vWsvvz4jbEkfDe71W3VyNu2w==}
-
   character-entities-html4@2.1.0:
     resolution: {integrity: sha512-1v7fgQRj6hnSwFpq1Eu0ynr/CDEw0rXo2B61qXrLNdHZmPKgb7fqS1a2JwF0rISo9q77jDI8VMEHoApn8qDoZA==}
 
@@ -3639,11 +3633,6 @@ packages:
 
   context-state@3.1.2:
     resolution: {integrity: sha512-wRxIDtXw3SoS/o2Dqu+eqFRExISgTxCsJ6yFyKaR1oc3WPPCYPGL1OZW7PQdjqxt0p0pDCWjxCPLr70cYocfdA==}
-    peerDependencies:
-      react: 18.3.0-canary-a870b2d54-20240314
-
-  context-state@3.2.0:
-    resolution: {integrity: sha512-JO2yHU/S+aHdS/bmwMZqlKaGAvvATYcFJmV+svFav+WLmqD3shGa5s3kqQ6bEkUQNlBBKbWx4IZT28UqGTNJ3w==}
     peerDependencies:
       react: 18.3.0-canary-a870b2d54-20240314
 
@@ -5474,10 +5463,6 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
-  minimatch@5.1.0:
-    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
-    engines: {node: '>=10'}
-
   minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
     engines: {node: '>=10'}
@@ -6288,9 +6273,6 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  randombytes@2.1.0:
-    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
-
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
@@ -6931,9 +6913,6 @@ packages:
   send@0.19.0:
     resolution: {integrity: sha512-dW41u5VfLXu8SJh5bwRmyYUbAoSB3c9uQh6L8h/KtsFREPWpbX1lrljJo186Jc4nmci/sGUZ9a0a0J2zgfq2hw==}
     engines: {node: '>= 0.8.0'}
-
-  serialize-javascript@6.0.2:
-    resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
 
   serve-static@1.16.2:
     resolution: {integrity: sha512-VqpjJZKadQB/PEbEwvFdO43Ax5dFBZ2UECszz8bQ7pi7wt//PWe1P6MN7eCnjsatYtBT6EuiClbjSWP2WrIoTw==}
@@ -7582,27 +7561,6 @@ packages:
     peerDependencies:
       esbuild: '*'
       vite: '>=5'
-
-  vite-plugin-remix-flat-routes@4.4.1:
-    resolution: {integrity: sha512-/mBU3q8LIW+jFVWCoZiej6cnndm5Wjy47uAyOgDqIR/dtxLoAzGSI+408nHalaQNXdCZeQpKElwYOnsjaLxc0A==}
-    peerDependencies:
-      '@vitejs/plugin-react': '>=4.3.2'
-      '@vitejs/plugin-react-swc': '>=3.6.0'
-      react: 18.3.0-canary-a870b2d54-20240314
-      react-dom: 18.3.0-canary-a870b2d54-20240314
-      react-router-dom: ^6
-      vite: '>=5'
-    peerDependenciesMeta:
-      '@vitejs/plugin-react':
-        optional: true
-      '@vitejs/plugin-react-swc':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-      react-router-dom:
-        optional: true
 
   vite-plugin-svgr@4.3.0:
     resolution: {integrity: sha512-Jy9qLB2/PyWklpYy0xk0UU3TlU0t2UMpJXZvf+hWII1lAmRHrOUKi11Uw8N3rxoNk7atZNYO3pR3vI1f7oi+6w==}
@@ -11405,8 +11363,6 @@ snapshots:
 
   chalk@5.3.0: {}
 
-  change-case@5.4.4: {}
-
   character-entities-html4@2.1.0: {}
 
   character-entities-legacy@1.1.4: {}
@@ -11555,10 +11511,6 @@ snapshots:
   content-type@1.0.5: {}
 
   context-state@3.1.2(react@18.3.0-canary-a870b2d54-20240314):
-    dependencies:
-      react: 18.3.0-canary-a870b2d54-20240314
-
-  context-state@3.2.0(react@18.3.0-canary-a870b2d54-20240314):
     dependencies:
       react: 18.3.0-canary-a870b2d54-20240314
 
@@ -13763,10 +13715,6 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.11
 
-  minimatch@5.1.0:
-    dependencies:
-      brace-expansion: 2.0.1
-
   minimatch@5.1.6:
     dependencies:
       brace-expansion: 2.0.1
@@ -14571,10 +14519,6 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  randombytes@2.1.0:
-    dependencies:
-      safe-buffer: 5.2.1
-
   range-parser@1.2.1: {}
 
   raw-body@2.5.2:
@@ -15346,10 +15290,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  serialize-javascript@6.0.2:
-    dependencies:
-      randombytes: 2.1.0
-
   serve-static@1.16.2:
     dependencies:
       encodeurl: 2.0.0
@@ -16119,23 +16059,6 @@ snapshots:
       vite: 5.4.11(@types/node@22.10.2)(terser@5.31.2)
     transitivePeerDependencies:
       - supports-color
-
-  vite-plugin-remix-flat-routes@4.4.1(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react-router-dom@6.27.0(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
-    dependencies:
-      change-case: 5.4.4
-      context-state: 3.2.0(react@18.3.0-canary-a870b2d54-20240314)
-      es-module-lexer: 1.5.4
-      eventemitter3: 5.0.1
-      local-pkg: 0.5.1
-      minimatch: 5.1.0
-      semver: 7.6.3
-      serialize-javascript: 6.0.2
-      type-fest: 4.30.2
-      vite: 5.4.11(@types/node@22.10.2)(terser@5.31.2)
-    optionalDependencies:
-      react: 18.3.0-canary-a870b2d54-20240314
-      react-dom: 18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314)
-      react-router-dom: 6.27.0(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)
 
   vite-plugin-svgr@4.3.0(rollup@4.21.2)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
     dependencies:
