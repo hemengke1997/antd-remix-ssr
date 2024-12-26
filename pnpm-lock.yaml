@@ -188,8 +188,8 @@ importers:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@22.10.2)(terser@5.31.2)
       vite-plugin-i18n-ally:
-        specifier: ^5.2.6
-        version: 5.2.6(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
+        specifier: ^5.2.8
+        version: 5.2.8(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
       vite-plugin-istanbul-widget:
         specifier: ^1.9.1
         version: 1.9.1(@remix-run/dev@2.13.1(@remix-run/react@2.13.1(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(typescript@5.7.2))(@remix-run/serve@2.13.1(typescript@5.7.2))(@types/node@22.10.2)(babel-plugin-macros@3.1.0)(terser@5.31.2)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
@@ -5023,10 +5023,6 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
-  jiti@2.3.3:
-    resolution: {integrity: sha512-EX4oNDwcXSivPrw2qKH2LB5PoFxEvgtv2JgwW0bU858HoLQ+kutSvjLMUqBd0PeJYEinLWhoI9Ol0eYMqj/wNQ==}
-    hasBin: true
-
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
@@ -7522,8 +7518,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-i18n-ally@5.2.6:
-    resolution: {integrity: sha512-Nr7K9HYJtAK2jTy+yZgq9mpj0o0+cYQmdAvlp9ubHfRs0zFxkOu93NtnrRzuFXrCkQ8GY9Y7s2tnmP2WGe8RMQ==}
+  vite-plugin-i18n-ally@5.2.8:
+    resolution: {integrity: sha512-MIqsvGnjDa6eN8BQBd1h325MmRROqPIxgo1JBw1woWlom69mQJt/qI6PQXn8FwOdo2RWikjnL1I0sGvhQD6J2g==}
     peerDependencies:
       vite: '>=5.0.0'
 
@@ -12839,9 +12835,9 @@ snapshots:
   importx@0.5.0:
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.1)
-      debug: 4.3.7
+      debug: 4.4.0
       esbuild: 0.23.1
-      jiti: 2.3.3
+      jiti: 2.4.2
       pathe: 1.1.2
       tsx: 4.19.1
     transitivePeerDependencies:
@@ -13111,8 +13107,6 @@ snapshots:
   javascript-stringify@2.1.0: {}
 
   jiti@1.21.6: {}
-
-  jiti@2.3.3: {}
 
   jiti@2.4.2: {}
 
@@ -15977,15 +15971,16 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-i18n-ally@5.2.6(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
+  vite-plugin-i18n-ally@5.2.8(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
     dependencies:
-      debug: 4.3.7
+      debug: 4.4.0
       fast-glob: 3.3.2
       find-up: 7.0.0
       importx: 0.5.0
       js-yaml: 4.1.0
       json5: 2.2.3
       language-tags: 1.0.9
+      picocolors: 1.1.1
       vite: 5.4.11(@types/node@22.10.2)(terser@5.31.2)
     transitivePeerDependencies:
       - supports-color

@@ -14,6 +14,9 @@ export default defineConfig((env) => {
   return preset(
     {
       env,
+      ssr: {
+        noExternal: ['vite-plugin-i18n-ally'],
+      },
       plugins: [
         i18nAlly(),
         envOnlyMacros(),
