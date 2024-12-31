@@ -31,26 +31,6 @@ import { csrf } from './modules/csrf/csrf.server'
 import { combineHeaders } from './modules/server/index.server'
 import { themeSessionResolver } from './modules/session/session.server'
 import { siteConfig } from './utils/constants/site'
-import { isDev } from './utils/env'
-
-export const shouldRevalidate = () => {
-  return true
-}
-
-export const clientLoader: ClientLoaderFunction = async ({ request, params }) => {
-  const url = new URL(request.url)
-  if (url) {
-    await window.asyncLoadResource?.(i18next.language, {
-      namespaces: [...(await resolveNamespace(url.pathname))],
-    })
-  }
-
-  redirectLang(request, params, {
-    fallbackLng: i18next.language,
-  })
-
-  return {}
-}
 
 export const meta: MetaFunction<typeof loader> = () => {
   return [
@@ -97,6 +77,25 @@ function redirectLang(
   }
 
   return { locale }
+}
+
+export const shouldRevalidate = () => {
+  return true
+}
+
+export const clientLoader: ClientLoaderFunction = async ({ request, params }) => {
+  const url = new URL(request.url)
+  if (url) {
+    await window.asyncLoadResource?.(i18next.language, {
+      namespaces: [...(await resolveNamespace(url.pathname))],
+    })
+  }
+
+  redirectLang(request, params, {
+    fallbackLng: i18next.language,
+  })
+
+  return {}
 }
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
@@ -146,7 +145,7 @@ function Document({
 
         {<script src={manifest.flexible} />}
 
-        {!isBrowser && !isDev() && '__ANTD_STYLE__'}
+        {!isBrowser && '__ANTD_STYLE__'}
       </head>
       <body>
         {children}

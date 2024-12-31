@@ -51,7 +51,6 @@ async function hydrate() {
       {
         detect: 'path',
         lookup: 0,
-        cache: false,
       },
       {
         detect: 'htmlTag',

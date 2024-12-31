@@ -188,14 +188,14 @@ importers:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@22.10.2)(terser@5.31.2)
       vite-plugin-i18n-ally:
-        specifier: ^5.2.8
-        version: 5.2.8(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
+        specifier: ^5.2.9
+        version: 5.2.9(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
       vite-plugin-istanbul-widget:
         specifier: ^1.9.1
         version: 1.9.1(@remix-run/dev@2.13.1(@remix-run/react@2.13.1(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(typescript@5.7.2))(@remix-run/serve@2.13.1(typescript@5.7.2))(@types/node@22.10.2)(babel-plugin-macros@3.1.0)(terser@5.31.2)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.0-canary-a870b2d54-20240314(react@18.3.0-canary-a870b2d54-20240314))(react@18.3.0-canary-a870b2d54-20240314)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
       vite-plugin-public-typescript:
         specifier: ^4.1.2
-        version: 4.1.2(esbuild@0.23.1)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
+        version: 4.1.2(esbuild@0.21.5)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2))
 
 packages:
 
@@ -3403,8 +3403,8 @@ packages:
     resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
     engines: {node: '>=6'}
 
-  bundle-require@5.0.0:
-    resolution: {integrity: sha512-GuziW3fSSmopcx4KRymQEJVbZUfqlCqcq7dvs6TYwKRZiegK/2buMxQTPs6MGlNv50wms1699qYO54R8XfRX4w==}
+  bundle-require@5.1.0:
+    resolution: {integrity: sha512-3WrrOuZiyaaZPWiEt4G3+IffISVC9HYlWueJEBWED4ZH4aIAC2PnkdnuRrR94M+w6yGWn4AglWtJtBI8YqvgoA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: '>=0.18'
@@ -4728,8 +4728,8 @@ packages:
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
 
-  importx@0.5.0:
-    resolution: {integrity: sha512-qROz3rSOjQYclmEQAajH9RhBuqpAGHM+5CNd9fk+TsF4JKmQsAI1egafW8XZZv8vARCo4nAmmt5d0eI2B8GUsA==}
+  importx@0.5.1:
+    resolution: {integrity: sha512-YrRaigAec1sC2CdIJjf/hCH1Wp9Ii8Cq5ROw4k5nJ19FVl2FcJUHZ5gGIb1vs8+JNYIyOJpc2fcufS2330bxDw==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -7277,8 +7277,8 @@ packages:
   tslib@2.7.0:
     resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
-  tsx@4.19.1:
-    resolution: {integrity: sha512-0flMz1lh74BR4wOvBjuh9olbnwqCPc35OOlfyzHba0Dc+QNUeWX/Gq2YTbnwcWPO3BMd8fkzRVrHcsR+a7z7rA==}
+  tsx@4.19.2:
+    resolution: {integrity: sha512-pOUl6Vo2LUq/bSa8S5q7b91cgNSjctn9ugq/+Mvow99qW6x/UZYwzxy/3NmqoT66eHYfCVvFvACC58UBPFf28g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -7518,8 +7518,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-i18n-ally@5.2.8:
-    resolution: {integrity: sha512-MIqsvGnjDa6eN8BQBd1h325MmRROqPIxgo1JBw1woWlom69mQJt/qI6PQXn8FwOdo2RWikjnL1I0sGvhQD6J2g==}
+  vite-plugin-i18n-ally@5.2.9:
+    resolution: {integrity: sha512-wDvEzhoi5MtcLIEdWxBo3SPgAOxriP3fJ2SsBiSIMSgxTDzxSiUT62nfeC+03nXEflCHTTgpzQo+4ZdWalfivA==}
     peerDependencies:
       vite: '>=5.0.0'
 
@@ -7946,7 +7946,7 @@ snapshots:
       '@babel/core': 7.25.8
       '@babel/helper-compilation-targets': 7.25.7
       '@babel/helper-plugin-utils': 7.25.7
-      debug: 4.3.7
+      debug: 4.4.0
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -11296,9 +11296,9 @@ snapshots:
 
   builtin-modules@3.3.0: {}
 
-  bundle-require@5.0.0(esbuild@0.23.1):
+  bundle-require@5.1.0(esbuild@0.21.5):
     dependencies:
-      esbuild: 0.23.1
+      esbuild: 0.21.5
       load-tsconfig: 0.2.5
 
   bytes@3.0.0: {}
@@ -12832,14 +12832,14 @@ snapshots:
 
   import-meta-resolve@4.1.0: {}
 
-  importx@0.5.0:
+  importx@0.5.1:
     dependencies:
-      bundle-require: 5.0.0(esbuild@0.23.1)
+      bundle-require: 5.1.0(esbuild@0.21.5)
       debug: 4.4.0
-      esbuild: 0.23.1
+      esbuild: 0.21.5
       jiti: 2.4.2
       pathe: 1.1.2
-      tsx: 4.19.1
+      tsx: 4.19.2
     transitivePeerDependencies:
       - supports-color
 
@@ -15680,7 +15680,7 @@ snapshots:
 
   tslib@2.7.0: {}
 
-  tsx@4.19.1:
+  tsx@4.19.2:
     dependencies:
       esbuild: 0.23.1
       get-tsconfig: 4.8.1
@@ -15971,12 +15971,12 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-i18n-ally@5.2.8(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
+  vite-plugin-i18n-ally@5.2.9(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
     dependencies:
       debug: 4.4.0
       fast-glob: 3.3.2
       find-up: 7.0.0
-      importx: 0.5.0
+      importx: 0.5.1
       js-yaml: 4.1.0
       json5: 2.2.3
       language-tags: 1.0.9
@@ -16030,7 +16030,7 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite-plugin-public-typescript@4.1.2(esbuild@0.23.1)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
+  vite-plugin-public-typescript@4.1.2(esbuild@0.21.5)(vite@5.4.11(@types/node@22.10.2)(terser@5.31.2)):
     dependencies:
       '@antfu/install-pkg': 0.4.1
       '@babel/core': 7.25.8
@@ -16040,7 +16040,7 @@ snapshots:
       browserslist-to-esbuild: 2.1.1(browserslist@4.24.0)
       core-js: 3.38.1
       debug: 4.3.7
-      esbuild: 0.23.1
+      esbuild: 0.21.5
       fast-glob: 3.3.2
       fs-extra: 11.2.0
       local-pkg: 0.5.0
