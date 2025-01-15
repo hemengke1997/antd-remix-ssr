@@ -21,7 +21,7 @@ export function createLocaleCookieResolver(localeCookie: Cookie) {
       },
       setLocale: async (locale: string) => {
         return {
-          'Set-Cookie': await localeCookie.serialize(locale),
+          'Set-Cookie': locale,
         }
       },
     }
