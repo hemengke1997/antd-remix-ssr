@@ -23,7 +23,7 @@ import AntdConfigProvider from './components/antd-config-provider'
 import { ErrorBoundaryComponent } from './components/error-boundary'
 import globalCss from './css/global.css?url'
 import { i18nOptions } from './i18n/i18n'
-import { i18nServer } from './i18n/i18n.server'
+import { i18nServer, localeCookie } from './i18n/i18n.server'
 import { resolveNamespace } from './i18n/namespace.client'
 import { getLanguages } from './i18n/resolver'
 import { useChangeI18n } from './i18n/use-change-i18n'
@@ -111,7 +111,10 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
   return json(
     { locale, csrfToken, theme: getTheme() || Theme.LIGHT },
     {
-      headers: combineHeaders({ 'Set-Cookie': locale }, csrfCookieHeader ? { 'Set-Cookie': csrfCookieHeader } : null),
+      headers: combineHeaders(
+        { 'Set-Cookie': await localeCookie.serialize(locale) },
+        csrfCookieHeader ? { 'Set-Cookie': csrfCookieHeader } : null,
+      ),
     },
   )
 }
